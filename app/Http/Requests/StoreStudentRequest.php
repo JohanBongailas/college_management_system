@@ -24,7 +24,7 @@ class StoreStudentRequest extends FormRequest
         return [
             'name' => 'required|string|max:70',
             'email' => 'required|email|unique:students,email',
-            'phone' => 'required|string|regex:/^(?:\+\d{1,}\s?)?\d{4}\s?\d{4}$/',
+            'phone' => 'required|string|regex:/^(?:\+\d{1,}\s?)?\d{1,}\s?\d{1,}$/', 
             'dob' => 'required|date|date_format:Y-m-d|after_or_equal:1970-01-01',
             'college_id' => 'required|exists:colleges,id',
         ];
