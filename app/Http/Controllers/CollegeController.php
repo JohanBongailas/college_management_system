@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\College;
 
 class CollegeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * List all colleges.
      */
     public function index()
     {
-        //
+        $colleges = College::all();
+        return view('colleges.index', compact('colleges'));
     }
 
     /**
