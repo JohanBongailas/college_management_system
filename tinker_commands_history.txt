@@ -1,0 +1,9 @@
+College::create([
+    'name'=>'Malta College Of Arts, Science And Technology',
+    'address'=>'Triq Kordin, Paola PLA 9032 Malta'
+]);
+
+College::create([
+    'name'=>'University Of Malta', 
+    'address'=>'Msida MSD 2080 Malta'
+]);
