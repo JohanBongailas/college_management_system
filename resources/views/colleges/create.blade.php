@@ -6,7 +6,7 @@
             <form action="{{ route('colleges.store') }}" method="post" novalidate>
                 @csrf
                 @method('POST')
-                @include('partial._forms', $collegeToEdit ?? [])
+                @include('partial._college_form', $collegeToEdit ?? [])
             </form>
         </div>
     </div>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCollegeRequest;
 use App\Http\Requests\UpdateCollegeRequest;
-use Illuminate\Http\Request;
 use App\Models\College;
 
 class CollegeController extends Controller
@@ -32,7 +31,7 @@ class CollegeController extends Controller
     public function store(StoreCollegeRequest $request)
     {
         College::create($request->validated());
-        return redirect()->route('colleges.index')->with('success', 'College created successfully!');
+        return redirect()->route('colleges.index')->with('success', 'College added successfully!');
     }
 
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreStudentRequest;
 use Illuminate\Http\Request;
+use App\Models\Student;
+use App\Models\College;
 
 class StudentController extends Controller
 {
@@ -11,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::all();
+        return view('students.index', compact('students'));
     }
 
     /**
@@ -19,15 +23,16 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreStudentRequest $request)
     {
-        //
+        Student::create($request->validated());
+        return redirect()->route('students.index')->with('success', 'Student added successfully!');
     }
 
     /**
@@ -35,7 +40,9 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $studentToShow = Student::findOrFail($id);
+        $college = College::find($studentToShow->college_id);
+        return view('students.show', compact(['studentToShow', 'college']));
     }
 
     /**
@@ -43,7 +50,8 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $student = Student::findOrFail($id);
+        return view('students.edit', compact('student'));
     }
 
     /**

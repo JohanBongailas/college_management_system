@@ -7,3 +7,5 @@ College::create([
     'name'=>'University Of Malta', 
     'address'=>'Msida MSD 2080 Malta'
 ]);
+
+Student::create(['name'=>'Johan', 'email'=>'johan.bongailas.e22072@mcast.edu.mt', 'phone'=>'+35677088630','dob'=>'2002-09-09', 'college_id'=>$college->id]);

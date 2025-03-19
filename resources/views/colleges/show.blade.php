@@ -28,9 +28,6 @@
                             <h5 class="card-title text-primary"><b>Address:</b></h5>
                             <p class="card-text fs-5">{{ $collegeToShow->address }}</p>
                         </div>
-
-                        <!-- Optional: Any other fields can follow similar formatting -->
-
                     </div>
                 </div>
             </div>
