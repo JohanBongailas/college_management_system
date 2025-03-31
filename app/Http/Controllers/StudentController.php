@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStudentRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Student;
 use App\Models\College;
 
@@ -23,7 +23,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+        $colleges = College::all();
+        return view('students.create', compact('colleges'));
     }
 
     /**
@@ -50,16 +51,28 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        $student = Student::findOrFail($id);
-        return view('students.edit', compact('student'));
+        $studentToEdit = Student::findOrFail($id);
+        $colleges = College::all();
+        return view('students.edit', compact('studentToEdit', 'colleges'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateStudentRequest $request, string $id)
     {
-        //
+        $studentToUpdate = Student::findOrFail($id);
+        $data = $request->validated();
+
+        $data['name'] ??= $studentToUpdate->name;
+        $data['email'] ??= $collegeToUpdate->email;
+        $data['phone'] ??= $studentToUpdate->phone;
+        $data['dob'] ??= $studentToUpdate->dob;
+        $data['college_id'] ??= $studentToUpdate->college_id;
+
+        $studentToUpdate->update($data);
+
+        return redirect()->route('students.index')->with('success', 'Student updated successfully!');
     }
 
     /**
@@ -67,6 +80,9 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $studentToDelete = Student::findOrFail($id);
+        $studentToDelete->delete();
+
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully!');
     }
 }

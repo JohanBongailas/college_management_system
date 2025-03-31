@@ -59,9 +59,12 @@ class CollegeController extends Controller
         // Handle the case where fields are left empty and pass null for empty fields
         $data = $request->validated(); // Automatically handles the nullable and required rules
 
+        // If name or address is not provided, keep the old value
+        $data['name'] ??= $collegeToUpdate->name;
+        $data['address'] ??= $collegeToUpdate->address;
+       
         // Update the college record
         $collegeToUpdate->update($data);
-
         return redirect()->route('colleges.index')->with('success', 'College updated successfully!');
     }
 

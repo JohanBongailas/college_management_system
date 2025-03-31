@@ -70,4 +70,4 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('js/crud_javascript.js') }}"></script>
+<script src="{{ asset('js/college_delete_script.js') }}"></script>
