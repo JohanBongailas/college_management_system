@@ -8,6 +8,14 @@
                             <span class="material-symbols-outlined me-1">add_circle</span> Add Student
                         </a>
                     </div>
+                    <div class="row align-items-center mb-3">
+                        <div class="col-auto">
+                            <h4 class="mb-0">Filter:</h4>
+                        </div>
+                        <div class="col-auto">
+                            @include('partial._filter')
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-hover table-striped align-middle">
                             <thead class="table-dark">

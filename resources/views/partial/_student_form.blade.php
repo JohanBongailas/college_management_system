@@ -38,7 +38,7 @@
 <div class="mb-4">
     <label for="college_id" class="form-label fs-5">College</label>
     <select class="form-select form-select-lg" id="college_id" name="college_id">
-        <option value="{{old("college_id", $studentToEdit->college_id)}}">Select College</option>
+        <option value="{{old("college_id", $studentToEdit->college_id ?? '')}}">Select College</option>
         @foreach ($colleges as $college)
             <option value="{{ $college->id }}"
                 {{ (old('college_id', $studentToEdit->college_id ?? '') == $college->id) ? 'selected' : '' }}>

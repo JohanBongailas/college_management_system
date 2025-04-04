@@ -62,7 +62,7 @@ class CollegeController extends Controller
         // If name or address is not provided, keep the old value
         $data['name'] ??= $collegeToUpdate->name;
         $data['address'] ??= $collegeToUpdate->address;
-       
+
         // Update the college record
         $collegeToUpdate->update($data);
         return redirect()->route('colleges.index')->with('success', 'College updated successfully!');

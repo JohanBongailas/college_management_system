@@ -7,7 +7,7 @@
         <form action="{{ route('students.update', $studentToEdit->id) }}" method="post" novalidate>
             @csrf
             @method('PUT')
-            @include('partial._student_form')
+            @include('partial._student_form', $studentToEdit ?? [])
         </form>
 </div>
 @endsection

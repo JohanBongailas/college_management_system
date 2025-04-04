@@ -74,3 +74,6 @@ table.table .form-control.error {
     border-color: #f50000;
 }
 
+.dropdown {
+    display: inline-block;
+}
