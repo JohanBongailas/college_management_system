@@ -72,7 +72,7 @@ class StudentController extends Controller
         $data = $request->validated();
 
         $data['name'] ??= $studentToUpdate->name;
-        $data['email'] ??= $collegeToUpdate->email;
+        $data['email'] ??= $studentToUpdate->email;
         $data['phone'] ??= $studentToUpdate->phone;
         $data['dob'] ??= $studentToUpdate->dob;
         $data['college_id'] ??= $studentToUpdate->college_id;
